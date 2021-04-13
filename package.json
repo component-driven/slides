@@ -14,8 +14,11 @@
   "homepage": "https://github.com/component-driven/slides#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "posttest": "npm run format",
     "start": "gatsby develop",
-    "build": "gatsby build"
+    "build": "gatsby build",
+    "format": "prettier --loglevel warn --write \"**/*.{js,css,md}\"",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@component-driven/mdx-deck-theme": "^2.0.1",
@@ -26,5 +29,13 @@
     "mdx-deck": "^4.1.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
+  },
+  "devDependencies": {
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1"
+  },
+  "lint-staged": {
+    "*.{jsx?,css,mdx?,json}": "prettier --write"
   }
 }
