@@ -1,4 +1,4 @@
-import CDTheme from '@component-driven/mdx-deck-theme';
+import CDTheme from "@component-driven/mdx-deck-theme";
 
 export const theme = { ...CDTheme };
 
@@ -123,11 +123,11 @@ Past ~5 years
 
 ---
 
-<Image src={'/assets/dribbble1.png'} size="contain" />
+<Image src={"/assets/dribbble1.png"} size="contain" />
 
 ---
 
-<Image src={'/assets/dribbble2.png'} size="contain" />
+<Image src={"/assets/dribbble2.png"} size="contain" />
 
 ---
 
@@ -168,11 +168,11 @@ Past ~5 years
 
 ```css
 .red {
-	color: red;
+  color: red;
 }
 
 .blue {
-	color: blue;
+  color: blue;
 }
 ```
 
@@ -196,9 +196,9 @@ Past ~5 years
 ---
 
 <Figure
-	src={'/assets/doors.jpg'}
-	alt="Different doors"
-	caption="Same but differnt"
+  src={"/assets/doors.jpg"}
+  alt="Different doors"
+  caption="Same but differnt"
 />
 
 ---
@@ -218,18 +218,18 @@ Past ~5 years
 
 ```css
 .description {
-	margin-bottom: 20px;
-	font-size: 16px;
-	color: #c9b8b9;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #c9b8b9;
 }
 ```
 
 ```css
 .count {
-	margin-left: 0.75em;
-	font-size: 14px;
-	opacity: 0.5;
-	color: #fc9;
+  margin-left: 0.75em;
+  font-size: 14px;
+  opacity: 0.5;
+  color: #fc9;
 }
 ```
 
@@ -239,25 +239,25 @@ Past ~5 years
 ---
 
 <Figure
-	src="/assets/too-many-buttons.jpg"
-	alt="Different button styles"
-	caption="Different button styles"
+  src="/assets/too-many-buttons.jpg"
+  alt="Different button styles"
+  caption="Different button styles"
 />
 
 ---
 
 <Figure
-	src="/assets/too-many-buttons-2.jpg"
-	alt="Different button styles"
-	caption="Different button styles"
+  src="/assets/too-many-buttons-2.jpg"
+  alt="Different button styles"
+  caption="Different button styles"
 />
 
 ---
 
 <Figure
-	src="/assets/text.png"
-	alt="Different text styles"
-	caption="Different text styles"
+  src="/assets/text.png"
+  alt="Different text styles"
+  caption="Different text styles"
 />
 
 ---
@@ -287,9 +287,9 @@ Past ~5 years
 ---
 
 <Figure
-	src="/assets/dls-foundation.png"
-	alt="Design Tokens"
-	caption="Design Tokens"
+  src="/assets/dls-foundation.png"
+  alt="Design Tokens"
+  caption="Design Tokens"
 />
 
 ---
@@ -341,30 +341,30 @@ Past ~5 years
 ---
 
 <Grid gridGap={5} p={4} gridTemplateColumns="auto 1fr auto">
-	<Appear>
-		<span>Text, Heading</span>
-		<div>
-			<Code language="html">{`<h1>Heading</h1>
+  <Appear>
+    <span>Text, Heading</span>
+    <div>
+      <Code language="html">{`<h1>Heading</h1>
 <p>Text</p>`}</Code>
-		</div>
-		<span>️😊</span>
-		<span>Link</span>
-		<div>
-			<Code language="html">{`<a href="#">Link</a>`}</Code>
-		</div>
-		<span>🤔</span>
-		<span>Button</span>
-		<div>
-			<Code language="html">
-				{`<button>Button</button>
+    </div>
+    <span>️😊</span>
+    <span>Link</span>
+    <div>
+      <Code language="html">{`<a href="#">Link</a>`}</Code>
+    </div>
+    <span>🤔</span>
+    <span>Button</span>
+    <div>
+      <Code language="html">
+        {`<button>Button</button>
 <input type="button">Button</input>`}
-			</Code>
-		</div>
-		<span>🙄</span>
-		<span>Dropdown</span>
-		<div sx={{ maxHeight: '50%' }}>
-			<Code language="html">
-				{`<div class="dropdown">
+      </Code>
+    </div>
+    <span>🙄</span>
+    <span>Dropdown</span>
+    <div sx={{ maxHeight: "50%" }}>
+      <Code language="html">
+        {`<div class="dropdown">
     <button
 	  class="btn btn-default dropdown-toggle"
 	  type="button"
@@ -381,22 +381,22 @@ Past ~5 years
       <li><a href="#">Separated link</a></li>
     </ul>
   </div>`}
-			</Code>
-		</div>
-		<span>😩</span>
-	</Appear>
+      </Code>
+    </div>
+    <span>😩</span>
+  </Appear>
 </Grid>
 
 ---
 
 <Figure
-	src={'/assets/bootstrap-dropdown.png'}
-	alt="Bootstrap Documentation Screenshot"
-	caption={
-		<a href="https://getbootstrap.com/docs/3.3/components/#dropdowns">
-			https://getbootstrap.com/docs/3.3/components/#dropdowns
-		</a>
-	}
+  src={"/assets/bootstrap-dropdown.png"}
+  alt="Bootstrap Documentation Screenshot"
+  caption={
+    <a href="https://getbootstrap.com/docs/3.3/components/#dropdowns">
+      https://getbootstrap.com/docs/3.3/components/#dropdowns
+    </a>
+  }
 />
 
 <ThatGuy />
@@ -445,10 +445,10 @@ Past ~5 years
 
 ```jsx
 <DropdownMenu trigger={<Button>Open Dropdown</Button>}>
-	<DropdownMenuItem>Action</DropdownMenuItem>
-	<DropdownMenuItem>Another action</DropdownMenuItem>
-	<DropdownMenuSeparator />
-	<DropdownMenuItem href="#">Separated link</DropdownMenuItem>
+  <DropdownMenuItem>Action</DropdownMenuItem>
+  <DropdownMenuItem>Another action</DropdownMenuItem>
+  <DropdownMenuSeparator />
+  <DropdownMenuItem href="#">Separated link</DropdownMenuItem>
 </DropdownMenu>
 ```
 
@@ -459,27 +459,27 @@ Past ~5 years
 ---
 
 ```jsx
-const Dropdown = props => (
-	<select>
-		{props.options.map(option => (
-			<option>{option}</option>
-		))}
-	</select>
+const Dropdown = (props) => (
+  <select>
+    {props.options.map((option) => (
+      <option>{option}</option>
+    ))}
+  </select>
 );
 ```
 
 ---
 
 ```jsx
-const Dropdown = props => (
-	<div className="dropdown">
-		<button class="btn btn-dropdown">{props.button}</button>
-		<ul>
-			{props.options.map(option => (
-				<li>{option}</li>
-			))}
-		</ul>
-	</div>
+const Dropdown = (props) => (
+  <div className="dropdown">
+    <button class="btn btn-dropdown">{props.button}</button>
+    <ul>
+      {props.options.map((option) => (
+        <li>{option}</li>
+      ))}
+    </ul>
+  </div>
 );
 ```
 
@@ -488,21 +488,21 @@ const Dropdown = props => (
 > Components is a common UI language
 
 <Notes>
-	You can watch my talk from React Amsterdam or React Finland called "A Common
-	Design Language".
+  You can watch my talk from React Amsterdam or React Finland called "A Common
+  Design Language".
 </Notes>
 
 ---
 
 <Grid gap={5} columns={2}>
-	<span>A button</span>
-	<Code language="jsx">{`<Button>`}</Code>
-	<span>A primary button</span>
-	<Code language="jsx">{`<Button primary>`}</Code>
-	<span>A cheked checkbox</span>
-	<Code language="jsx">{`<Checkbox checked>`}</Code>
-	<span>A dropdown menu</span>
-	<Code language="jsx">{`<DropdownMenu>`}</Code>
+  <span>A button</span>
+  <Code language="jsx">{`<Button>`}</Code>
+  <span>A primary button</span>
+  <Code language="jsx">{`<Button primary>`}</Code>
+  <span>A cheked checkbox</span>
+  <Code language="jsx">{`<Checkbox checked>`}</Code>
+  <span>A dropdown menu</span>
+  <Code language="jsx">{`<DropdownMenu>`}</Code>
 </Grid>
 
 ---
@@ -520,9 +520,9 @@ const Dropdown = props => (
 ---
 
 <Figure
-	src={'/assets/legos-assembled.jpg'}
-	alt="Lego cars"
-	caption="Different items from the same set of bricks"
+  src={"/assets/legos-assembled.jpg"}
+  alt="Lego cars"
+  caption="Different items from the same set of bricks"
 />
 
 ---
@@ -548,15 +548,15 @@ vs.
 ---
 
 <Code
-	language="jsx"
-	inline
+  language="jsx"
+  inline
 >{`<font face="Arial" size="3" color="red" />`}</Code>
 
 vs.
 
 <Code
-	language="jsx"
-	inline
+  language="jsx"
+  inline
 >{`<Text fontFace="base" fontSize={3} color="danger" />`}</Code>
 
 ---
@@ -570,9 +570,9 @@ vs.
 ---
 
 <Figure
-	src={'/assets/styled-system.png'}
-	alt="Styled-system Webiste"
-	caption={<a href="https://styled-system.com">https://styled-system.com</a>}
+  src={"/assets/styled-system.png"}
+  alt="Styled-system Webiste"
+  caption={<a href="https://styled-system.com">https://styled-system.com</a>}
 />
 
 ---
@@ -606,57 +606,57 @@ Things developers will be allowed to customize
 ---
 
 ```javascript
-import styled from 'styled-components';
-import { color, margin, typography } from 'styled-system';
+import styled from "styled-components";
+import { color, margin, typography } from "styled-system";
 
 export const Text = styled.p(
-	// defaults
-	{
-		margin: 0,
-		lineHeight: 1.5,
-	},
-	// API
-	color,
-	typography,
-	margin
+  // defaults
+  {
+    margin: 0,
+    lineHeight: 1.5,
+  },
+  // API
+  color,
+  typography,
+  margin
 );
 ```
 
 ---
 
 ```javascript
-import Text from '../primitives/Text';
+import Text from "../primitives/Text";
 
 <Text color="gray.9" fontWeight="bold">
-	Bold red text
+  Bold red text
 </Text>;
 ```
 
 ---
 
-<Image src={'/assets/text.png'} size="contain" />
+<Image src={"/assets/text.png"} size="contain" />
 
 ---
 
 ## Only necessary text styles
 
 <ul>
-	<li>
-		<h1 style={{ textAlign: 'left', margin: 0 }}>Heading 1</h1>
-	</li>
-	<li>
-		<h2 style={{ textAlign: 'left', margin: 0 }}>Heading 2</h2>
-	</li>
-	<li>Normal text</li>
-	<li style={{ color: '#979797', fontSize: '80%' }}>Secondary text</li>
-	<li style={{ color: '#930' }}>Error</li>
-	<li>etc.</li>
+  <li>
+    <h1 style={{ textAlign: "left", margin: 0 }}>Heading 1</h1>
+  </li>
+  <li>
+    <h2 style={{ textAlign: "left", margin: 0 }}>Heading 2</h2>
+  </li>
+  <li>Normal text</li>
+  <li style={{ color: "#979797", fontSize: "80%" }}>Secondary text</li>
+  <li style={{ color: "#930" }}>Error</li>
+  <li>etc.</li>
 </ul>
 
 ---
 
 ```javascript
-import Text from '../primitives/Text';
+import Text from "../primitives/Text";
 
 <Text textStyle="secondary">Not so important text</Text>;
 ```
@@ -702,9 +702,9 @@ import Text from '../primitives/Text';
 ---
 
 <Figure
-	src={'/assets/spacing-scale.png'}
-	alt="Spacing composition"
-	caption="Space composition by Nathan Curtis"
+  src={"/assets/spacing-scale.png"}
+  alt="Spacing composition"
+  caption="Space composition by Nathan Curtis"
 />
 
 ---
@@ -733,20 +733,20 @@ import Text from '../primitives/Text';
 ---
 
 ```javascript
-import styled from 'styled-components';
-import { layout, space, color, border, boxShadow } from 'styled-system';
+import styled from "styled-components";
+import { layout, space, color, border, boxShadow } from "styled-system";
 
 export const Box = styled.div(
-	// defaults
-	{
-		minWidth: 0,
-	},
-	// API
-	layout,
-	space,
-	color,
-	border,
-	boxShadow
+  // defaults
+  {
+    minWidth: 0,
+  },
+  // API
+  layout,
+  space,
+  color,
+  border,
+  boxShadow
 );
 ```
 
@@ -776,10 +776,10 @@ export const Box = styled.div(
 
 ```jsx
 <Flex
-	alignItems="center"
-	justifyContent="center"
-	flexDirection="row"
-	flexWrap="wrap"
+  alignItems="center"
+  justifyContent="center"
+  flexDirection="row"
+  flexWrap="wrap"
 />
 ```
 
@@ -831,10 +831,10 @@ export const Box = styled.div(
 
 ```jsx
 // breakpoints: [small, medium, large]
-<Stack gap={[1, 2, 3]} orientation={['vertical', 'horizontal']}>
-	<Box>...</Box>
-	<Box>...</Box>
-	<Box>...</Box>
+<Stack gap={[1, 2, 3]} orientation={["vertical", "horizontal"]}>
+  <Box>...</Box>
+  <Box>...</Box>
+  <Box>...</Box>
 </Stack>
 ```
 
@@ -961,17 +961,17 @@ export const Box = styled.div(
 
 ---
 
-<Image src={'/assets/napkin.jpg'} size="contain" />
+<Image src={"/assets/napkin.jpg"} size="contain" />
 
 ---
 
 <Video
-	src="https://airbnb.design/wp-content/uploads/2017/10/WireframeClassifiersmall.mp4?_=1"
-	autoPlay="autoplay"
-	loop="loop"
-	width="100%"
-	height="100vh"
-	margin="auto"
+  src="https://airbnb.design/wp-content/uploads/2017/10/WireframeClassifiersmall.mp4?_=1"
+  autoPlay="autoplay"
+  loop="loop"
+  width="100%"
+  height="100vh"
+  margin="auto"
 />
 
 ---
@@ -985,11 +985,11 @@ export const Box = styled.div(
 ---
 
 <Figure
-	src={'/assets/component-driven.svg'}
-	alt="Component-driven Logo"
-	caption={
-		<a href="https://www.component-driven.dev">www.component-driven.dev</a>
-	}
+  src={"/assets/component-driven.svg"}
+  alt="Component-driven Logo"
+  caption={
+    <a href="https://www.component-driven.dev">www.component-driven.dev</a>
+  }
 />
 
 ---
@@ -1015,8 +1015,8 @@ export const Box = styled.div(
 # Thank you!
 
 <Grid gridGap={[3, 5]} columns={[1, 2]} pt={4}>
-	<a href="https://twitter.com/okonetchnikov">@okonetchnikov</a>
-	<a href="https://twitter.com/ComponentDriven">@ComponentDriven</a>
+  <a href="https://twitter.com/okonetchnikov">@okonetchnikov</a>
+  <a href="https://twitter.com/ComponentDriven">@ComponentDriven</a>
 </Grid>
 
 </Primary>
