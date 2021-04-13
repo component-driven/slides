@@ -1,0 +1,30 @@
+{
+  "name": "slides",
+  "version": "0.0.0-development",
+  "description": "Slides for talks and presentations",
+  "license": "CC BY-NC 4.0",
+  "author": "Andrey Okonetchnikov <andrey@okonet.ru>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/component-driven/slides.git"
+  },
+  "bugs": {
+    "url": "https://github.com/component-driven/slides/issues"
+  },
+  "homepage": "https://github.com/component-driven/slides#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gatsby develop",
+    "build": "gatsby build"
+  },
+  "dependencies": {
+    "@component-driven/mdx-deck-theme": "^2.0.1",
+    "emotion": "^11.0.0",
+    "gatsby": "^2.32.12",
+    "gatsby-plugin-compile-es6-packages": "^2.1.0",
+    "gatsby-theme-mdx-deck": "^4.1.0",
+    "mdx-deck": "^4.1.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  }
+}
