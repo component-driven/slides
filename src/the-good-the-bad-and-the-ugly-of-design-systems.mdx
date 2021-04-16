@@ -1,4 +1,4 @@
-import CDTheme from "@component-driven/mdx-deck-theme"; import * as timers from "timers";
+import CDTheme from "@component-driven/mdx-deck-theme";
 
 export const theme = { ...CDTheme };
 
@@ -76,14 +76,6 @@ UI engineer with experience in both design & development who specializes in inte
     src="/assets/ds-1.png"
     alt="Design Systems Figure 1"
     caption="German vs Austrian governments"
-/>
-
----
-
-<Figure
-    src={"/assets/doors.jpg"}
-    alt="Different doors"
-    caption="No design system in real life"
 />
 
 ---
@@ -552,11 +544,10 @@ const Dropdown = (props) => (
 1. Little to no component tests
 1. CSS changes -> regressions in products
 1. Hard to test changes manually
-1. Writing long "how to test" instructions
 
 ---
 
-// TODO: Gif of zombies crawling on the wall
+<TweetEmbed id="1381633331230601221" />
 
 ---
 
@@ -566,10 +557,6 @@ const Dropdown = (props) => (
 1. Confidence
 1. Speed
 1. Specification
-
----
-
-<TweetEmbed id="1381633331230601221" />
 
 ---
 
@@ -601,15 +588,24 @@ const Dropdown = (props) => (
 
 ### JavaScript -> TypeScript
 
+1. Planned work. Make up time.
 1. Refactoring a JS file? Convert to TS first!
 1. JS -> TS _might be_ a breaking change
 
 ---
 
+<Figure
+    src={"/assets/js-ts.png"}
+    alt="TypeScript migration epic"
+    caption="TypeScript migration epic"
+/>
+
+---
+
 ### Unit tests
 
-1. General rules and principles
 1. Utility (pure) functions
+1. General rules and principles
 
 ---
 
@@ -619,9 +615,7 @@ const Dropdown = (props) => (
 - Allow setting underlying HTML tag with `as`
 - Merge `css`, `style`, and `className` props
 - Always pass the `ref` with `forwardRef`
-- Merge inernal and external refs
-- Merge event handlers
-- No outer white space (`margin: 0`)
+- Merge refs and event handlers
 
 ---
 
@@ -652,7 +646,11 @@ describe('Ref Tests', () => {
 
 ---
 
-// TODO: A church with weird windows illustration
+<Figure
+    src={"/assets/doors.jpg"}
+    alt="Different doors"
+    caption="Visual regressions"
+/>
 
 ---
 
@@ -724,26 +722,109 @@ describe('Ref Tests', () => {
 
 ---
 
-## Interactivity & Behavior Tests
+<Figure
+    src={"/assets/buttons-1.png"}
+    alt="Possible states of a button"
+    caption="Possible states of a button"
+/>
 
-1. Manually
-1. Automated
-1. ???
+---
+
+<Figure
+    src={"/assets/buttons-2.png"}
+    alt="Possible states of a button"
+    caption="Possible states of a button"
+/>
+
+---
+
+<Figure
+    src={"/assets/buttons-3.png"}
+    alt="Possible states of a button"
+    caption="Possible states of a button"
+/>
+
+---
+
+<Figure
+    src={"/assets/buttons-4.png"}
+    alt="Possible states of a button"
+    caption="Possible states of a button"
+/>
+
+---
+
+## Additional resources
+
+---
+
+<Demo src="https://johno.com/cartesian-product/" />
+
+---
+
+<Demo src="https://ui.component-driven.dev/#/with-selector?id=withselector" />
+
+---
+
+## Interactivity & Behavior Tests
 
 ---
 
 <Figure
     src={"/assets/tests-manual-how-to-test.png"}
     alt="Testing instructions"
-    caption="Testing instructions for a Select component"
+    caption="Manual testing instructions"
 />
 
 ---
 
 ## Manual QA
 
-1. No QA team
-1. Atomic Deploy Previews
+1. Stash your local changes
+1. Checkout the latest branch locally
+1. Start the storybook and playroom
+1. Follow instructions
+1. Checkout your working branch
+1. Unstash changes
+
+---
+
+<Figure
+    src={"/assets/playroom-storybook-deployment-expanded.png"}
+    alt="PR Deploy Preview"
+    caption="PR Deploy Preview"
+/>
+
+---
+
+## Manual QA
+
+1. ~~Stash your local changes~~
+1. ~~Checkout the latest branch locally~~
+1. ~~Start the storybook and playroom~~
+1. Follow instructions
+1. ~~Checkout your working branch~~
+1. ~~Unstash changes~~
+
+---
+
+<Figure
+    src={"/assets/releases-checks-green.png"}
+    alt="PR Status Checks"
+    caption="PR Status Checks"
+/>
+
+---
+
+<Figure
+    src={"/assets/releases-update-branch.png"}
+    alt="PR Status Checks"
+    caption="PR Status Checks"
+/>
+
+---
+
+# 🥺
 
 ---
 
@@ -751,12 +832,10 @@ describe('Ref Tests', () => {
 
 ---
 
-> No release process. Breaking changes can take days to upgrade.
+## Release management
 
----
-
-1. Versioning
-1. Release automation
+1. **Versioning**
+1. Automation
 
 ---
 
@@ -848,6 +927,18 @@ describe('Ref Tests', () => {
 
 ---
 
+# Breaking changes
+
+---
+
+## Breaking changes
+
+1. API changes
+1. Removals (components or props)
+1. Renames (component or props)
+
+---
+
 <Figure
     src={"/assets/chromatic-1.png"}
     alt="GitHub comments"
@@ -856,7 +947,7 @@ describe('Ref Tests', () => {
 
 ---
 
-### Q: Is CSS change a breaking change?
+## Is CSS change a breaking change?
 
 ---
 
@@ -869,16 +960,24 @@ describe('Ref Tests', () => {
 
 ---
 
-### How to find out if the code change is needed?
+## How to find out if the code change is needed?
 
 ---
 
-1. Visual regression tests
+1. Visual regressions
 1. Static analysis
 
 ---
 
-# Visual regressions in the product
+## Visual regressions of applications
+
+---
+
+# 💡 The idea
+
+1. Checkout the main branch of the product
+1. Inject current branch of the design system
+1. Run visual regressions tests
 
 ---
 
@@ -890,11 +989,19 @@ describe('Ref Tests', () => {
 
 ---
 
-# The process
+<Figure
+    src={"/assets/chromatic-not-compatible.png"}
+    alt="Major versions not compatible"
+    caption="Major versions not compatible"
+/>
 
-1. Checkout the main branch of the product
-1. Inject current branch of the design system
-1. Run visual regressions tests
+---
+
+## Problems
+
+1. Only works if major version matches
+1. Hard to implement
+1. Missing current branches
 
 ---
 
@@ -902,15 +1009,57 @@ describe('Ref Tests', () => {
 
 ---
 
-## Why invest into infrastructure?
+[![asciicast](https://asciinema.org/a/ymdY84Z9gmqoRl9afxCYZCSvY.svg)](https://asciinema.org/a/ymdY84Z9gmqoRl9afxCYZCSvY)
+
+---
+
+<Figure
+    src={"/assets/static-analysis-usages.png"}
+    alt="Usages of a component"
+    caption="Usages of a design system component"
+/>
+
+---
+
+## Insights
+
+- What components should we move to TypeScript first?
+- Can we deprecate a component?
+- Should we change the default value of this prop?
+- What's the risk of changing a component
+- What is the adoption rate of the design system?
+
+---
+
+## Release management
+
+1. Versioning
+1. **Automation**
+
+---
+
+## Automatic migrations
+
+---
+
+1. Ship codemods (elaborate)
+1. Rename to `DeprecatedComponent` and provide a codemod
+
+---
+
+<Figure
+    src={"/assets/static-analysis-deprecate.png"}
+    alt="Deprecate codemod"
+    caption="Deprecate codemod"
+/>
 
 ---
 
 ## Links and credits
 
-- https://https://design-system.adverity.net
-- https://https://design-system.adverity.net/playroom
-- https://www.monolisa.dev — the coding font I'm using
+- [Cartesian products](https://johno.com/cartesian-product/)
+- [Visualizing Pseudo-states](https://ui.component-driven.dev/#/with-selector)
+- [MonoLisa Coding Font](https://www.monolisa.dev)
 
 ---
 
