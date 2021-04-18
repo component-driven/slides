@@ -1,0 +1,519 @@
+import CDTheme from "@component-driven/mdx-deck-theme";
+
+export const theme = { ...CDTheme };
+
+<Primary>
+
+# Introduction to Design Systems
+
+</Primary>
+
+---
+
+## Andrey Okonetchnikov
+
+UI engineer with experience in both design & development who specializes in interaction design, design systems and modern frontend development. Design System Lead @ Adverity
+
+[@okonetchnikov](https://twitter.com/okonetchnikov)
+
+---
+
+<Primary imgSrc="/assets/back-disassembled.jpg">
+
+# Design Systems
+
+</Primary>
+
+---
+
+> Design system defines a set of design-related rules as a system of instructions that can be re-used across single or multiple products
+
+---
+
+# Design Systems
+
+- UI & UX consistency
+- A common language
+- Development speed
+- Best practices
+
+---
+
+<Secondary>
+
+## UI & UX consistency
+
+</Secondary>
+
+---
+
+<Figure
+    src="/assets/ds-1.png"
+    alt="Design Systems Figure 1"
+    caption="German vs Austrian governments"
+/>
+
+---
+
+<Figure
+    src="/assets/too-many-buttons.jpg"
+    alt="Different button styles"
+    caption="No design system in a digital product"
+/>
+
+---
+
+## Inconsistencies coming from
+
+1. Custom styles
+1. Custom UI elements
+1. Custom UX for same problems
+
+---
+
+## Custom styles
+
+---
+
+### Using custom CSS in the product
+
+<Grid columns={2} gap={4}>
+
+```css
+.description {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #c9b8b9;
+}
+```
+
+```css
+.count {
+    margin-left: 0.75em;
+    font-size: 14px;
+    opacity: 0.5;
+    color: #fc9;
+}
+```
+
+</Grid>
+
+---
+
+### The Bad
+
+Using custom styles during design
+
+<Figure
+    src="/assets/custom-colors.png"
+    alt="Custom colors"
+    caption="Custom colors"
+/>
+
+---
+
+# Design tokens
+
+---
+
+
+> Design tokens are everything you use more than once in your styles
+
+---
+
+<Figure
+    src="/assets/dls-foundation.png"
+    alt="Design Tokens"
+    caption="Design Tokens"
+/>
+
+---
+
+<Demo src="https://design-system.adverity.net/versions/17.2.0/storybook/?path=/docs/documentation-design-tokens-tokens-list--page" />
+
+---
+
+### Using design tokens
+
+<Grid columns={2} gap={4}>
+
+```css
+.description {
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--fontSize-md);
+    color: var(--color-primary);
+}
+```
+
+```css
+.count {
+    margin-left: var(--spacing-sm);
+    font-size: var(--fontSize-md);
+    opacity: var(--opacity-50);
+    color: var(--color-accent);
+}
+```
+
+</Grid>
+
+
+---
+
+<Demo src="https://jansix.at/resources/figma-tokens" />
+
+
+---
+
+## Custom UI elements
+
+---
+
+<Figure
+    src="/assets/custom-design-radio-figma.png"
+    alt="Custom radio buttons"
+    caption="Using custom elements in design"
+/>
+
+---
+
+<Figure
+    src="/assets/custom-styles-in-design.png"
+    alt="Custom radio buttons"
+    caption="Using custom elements in design"
+/>
+
+---
+
+<Primary>
+
+# Components
+
+</Primary>
+
+---
+
+> HTML was designed for documents, not applications!
+
+---
+
+<Grid gap={3} columns={3}>
+    <Appear>
+        <span>Text, Heading</span>
+        <div>
+            <Code language="html">{`<h1>Heading</h1>
+<p>Text</p>`}</Code>
+        </div>
+        <span>️😊</span>
+        <span>Link</span>
+        <div>
+            <Code language="html">{`<a href="#">Link</a>`}</Code>
+        </div>
+        <span>🤔</span>
+        <span>Button</span>
+        <div>
+            <Code language="html">
+                {`<button type="button">Button</button>
+<input type="button" value="Button"/>`}
+            </Code>
+        </div>
+        <span>🙄</span>
+        <span>Dropdown</span>
+        <div sx={{ maxHeight: "50%" }}>
+            <Code language="html">
+                {`<div class="dropdown">
+    <button
+      class="btn btn-default dropdown-toggle"
+      type="button"
+      id="dropdownMenu1"
+      data-toggle="dropdown"
+    >
+      Dropdown <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Action</a></li>
+      <li><a href="#">Another action</a></li>
+      <li><a href="#">Something else here</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="#">Separated link</a></li>
+    </ul>
+  </div>`}
+            </Code>
+        </div>
+        <span>😩</span>
+    </Appear>
+</Grid>
+
+---
+
+<Figure
+    src={"/assets/bootstrap-dropdown.png"}
+    alt="Bootstrap Documentation Screenshot"
+    caption={
+        <a href="https://getbootstrap.com/docs/3.3/components/#dropdowns">
+            https://getbootstrap.com/docs/3.3/components/#dropdowns
+        </a>
+    }
+/>
+
+<ThatGuy />
+
+---
+
+# Components
+
+- `<Button>` → `<button>`
+- `<Input>` → `<input type="text">`
+- `<Checkbox>` → `<input type="checkbox">`
+- `<Dropdown>` → ~~`<select>`~~ `<div class="dropdown">...`
+
+---
+
+> Components is a better way of writing HTML
+
+---
+
+```html
+<div class="dropdown">
+  <button
+    class="btn btn-default dropdown-toggle"
+    type="button"
+    id="dropdownMenu1"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded=“true"
+  >
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul
+     class="dropdown-menu"
+     aria-labelledby=“dropdownMenu1"
+  >
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+```
+
+---
+
+```jsx
+<DropdownMenu trigger={<Button>Open Dropdown</Button>}>
+  <DropdownMenuItem>Action</DropdownMenuItem>
+  <DropdownMenuItem>Another action</DropdownMenuItem>
+  <DropdownMenuSeparator />
+  <DropdownMenuItem href="#">Separated link</DropdownMenuItem>
+</DropdownMenu>
+```
+
+---
+
+> Components can change over time
+
+---
+
+```jsx
+const Dropdown = (props) => (
+  <select>
+    {props.options.map((option) => (
+      <option>{option}</option>
+    ))}
+  </select>
+);
+```
+
+---
+
+```jsx
+const Dropdown = (props) => (
+  <div className="dropdown">
+    <button class="btn btn-dropdown">{props.button}</button>
+    <ul>
+      {props.options.map((option) => (
+        <li>{option}</li>
+      ))}
+    </ul>
+  </div>
+);
+```
+
+---
+
+> Components is a common UI language
+
+---
+
+<Grid gap={5} columns={2}>
+    <span>A button</span>
+    <Code language="jsx">{`<Button>`}</Code>
+    <span>A primary button</span>
+    <Code language="jsx">{`<Button primary>`}</Code>
+    <span>A cheked checkbox</span>
+    <Code language="jsx">{`<Checkbox checked>`}</Code>
+    <span>A dropdown menu</span>
+    <Code language="jsx">{`<DropdownMenu>`}</Code>
+</Grid>
+
+---
+
+<Primary imgSrc="/assets/legos.jpg">
+
+# Primitive components
+
+</Primary>
+
+---
+
+> Primitives are the building blocks of the user interface.
+
+---
+
+<Figure
+    src={"/assets/legos-assembled.jpg"}
+    alt="Lego cars"
+    caption="Different items from the same set of bricks"
+/>
+
+---
+
+<Primary>
+
+# Primitives Composition
+
+</Primary>
+
+---
+
+## API: Composition
+
+- `<Heading>` → `<Text textStyle="heading" as="h1">`
+- `<Label>` → `<Text textStyle="label" as="label">`
+- `<Error>` → `<Text color="error" as="p">`
+
+---
+
+> Primitives are meant to be composed
+
+---
+
+
+<Demo src="https://interplayapp.com/" />
+
+---
+
+## Custom UX for same problems
+
+---
+
+<Figure
+    src="/assets/patterns-1.png"
+    alt="Custom UI & UX Patterns"
+    caption="Different date range pickers"
+/>
+
+---
+
+<Figure
+    src="/assets/patterns-2.png"
+    alt="Custom UI & UX Patterns"
+    caption="Different date range pickers"
+/>
+
+---
+
+<Figure
+    src="/assets/patterns-3.png"
+    alt="Custom UI & UX Patterns"
+    caption="Different date range pickers"
+/>
+
+---
+
+<Figure
+    src="/assets/patterns-4.png"
+    alt="Custom UI & UX Patterns"
+    caption="Different date range pickers"
+/>
+
+---
+
+<Primary>
+
+# UI Patterns
+
+</Primary>
+
+---
+
+> A design pattern is the re-usable form of a solution to a design problem.
+
+---
+
+## API: Patterns
+
+- `<Card>` → `<Stack>...</Stack>`
+- `<ProductCard>` → `<Card>...</Card>`
+- `<ProductPage>` → `products.map(product => <ProductCard product={product} />)`
+
+---
+
+<Demo src="https://design-system.adverity.net/versions/17.6.17/storybook/?path=/docs/documentation-components-pattern-stepper-stepper-docs--page" />
+
+---
+
+<Demo src="https://design-system.adverity.net/versions/17.6.17/storybook/?path=/docs/documentation-components-pattern-autherrorpage-autherrorpage-docs--page" />
+
+---
+
+<Demo src="https://design-system.adverity.net/versions/17.6.17/storybook/?path=/docs/documentation-components-pattern-modaldialog-deletedialog-docs--page" />
+
+---
+
+> UI patterns should be created in the product and shared only if there is a need.
+
+---
+
+# Recap
+
+---
+
+# Design Systems
+
+- UI & UX consistency
+- A common language
+- Development speed
+- Best practices
+
+---
+
+## Links and credits
+
+- [Cartesian products](https://johno.com/cartesian-product/)
+- [Visualizing Pseudo-states](https://ui.component-driven.dev/#/with-selector)
+- [JSCodeshift](https://github.com/facebook/jscodeshift)
+- [MonoLisa Coding Font](https://www.monolisa.dev)
+
+---
+
+<Figure
+  src={"/assets/component-driven.svg"}
+  alt="Component-driven Logo"
+  caption={
+    <a href="https://www.component-driven.dev">www.component-driven.dev</a>
+  }
+/>
+
+---
+
+<Primary>
+
+# Thank you!
+
+<Grid gridGap={[3, 5]} columns={[1, 2]} pt={4}>
+  <a href="https://twitter.com/okonetchnikov">@okonetchnikov</a>
+  <a href="https://twitter.com/ComponentDriven">@ComponentDriven</a>
+</Grid>
+
+</Primary>
