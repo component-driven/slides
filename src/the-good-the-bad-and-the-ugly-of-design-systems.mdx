@@ -38,7 +38,7 @@ UI engineer with experience in both design & development who specializes in inte
 
 ---
 
-## Adverity Design System
+## Design System Goals
 
 - UI & UX consistency
 - A common language
@@ -73,18 +73,27 @@ UI engineer with experience in both design & development who specializes in inte
 
 ## Adoption problems
 
-1. Design system is the single source of failure. No QA tools, no tests, regressions happen in products.
-2. No release process. Breaking changes can take days to upgrade.
-3. Design is often out of sync with design system.
-4. Lack of the documentation and guidelines. Developers don't know how use design system properly. Principles > Questions. This means, if I ever have a question, I'd need to establish a principle that answers / explains it.
-
+- "Design system is the single source of failure"
+- "No release process. Breaking changes can take days to upgrade."
+- etc...
 ---
 
+<Primary imgSrc="/assets/back-disassembled.jpg">
+
+# Design System
 ## A single source of truth
 
+</Primary>
+
 ---
 
+
+<Primary imgSrc="/assets/back-disassembled.jpg">
+
+# Design System
 ## A single source of ~~truth~~ failure
+
+</Primary>
 
 ---
 
@@ -601,19 +610,48 @@ Introduce a new Input component but there are lots of usages of the old Input.
 
 ---
 
-### Replacing the Input (design system)
+### Replacing the Input (before)
 
-1. Create a codemod to rename `Input` to `DeprecatedInput`
-1. Create a new `Input` component
-1. Introduce a breaking change
+<Grid columns={2}>
+<Box>
+
+1. Delete `Input`
+1. Create a new `Input`
+1. Breaking change
+
+</Box>
+<Box>
+
+1. Upgrade to latest version
+1. Manually search & replace all usages of `Input`
+
+</Box>
+</Grid>
 
 ---
 
-### Replacing the Input (consumers)
+> Upgrade takes days if not weeks, lots of defects after
+
+---
+
+### Replacing the Input (after)
+
+<Grid columns={2}>
+<Box>
+
+1. Codemod `Input` -> `DeprecatedInput`
+1. Create a new `Input` component
+1. Breaking change + a codemod
+
+</Box>
+<Box>
 
 1. Upgrade to latest version
-1. Run the codemod and create a PR
-1. Start incrimentally adopt new Input
+1. Run the codemod `Input` -> `DeprecatedInput` (one PR)
+1. Incrementally adopt new `Input`
+
+</Box>
+</Grid>
 
 ---
 
@@ -626,6 +664,14 @@ Introduce a new Input component but there are lots of usages of the old Input.
     alt="Deprecate codemod"
     caption="Deprecate codemod"
 />
+
+---
+
+## Challenges
+
+1. How long maintain deprecated components?
+1. What about deprecation of props?
+1. More complex refactorings?
 
 ---
 
