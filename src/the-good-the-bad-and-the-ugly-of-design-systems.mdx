@@ -304,14 +304,6 @@ describe('Ref Tests', () => {
 
 ---
 
-<Figure
-    src={"/assets/buttons-4.png"}
-    alt="Possible states of a button"
-    caption="Possible states of a button"
-/>
-
----
-
 ## Revealing all possible states
 
 ---
@@ -325,6 +317,31 @@ describe('Ref Tests', () => {
 ---
 
 <Demo src="https://ui.component-driven.dev/#/with-selector?id=withselector" />
+
+---
+
+```jsx
+<Stack orientation="horizontal">
+    <Button>normal</Button>
+    <WithSelector selector={':active:not([aria-disabled="true"])'}>
+        <Button>:active</Button>
+    </WithSelector>
+    <WithSelector selector={':hover:not([aria-disabled="true"])'}>
+        <Button>:hover</Button>
+    </WithSelector>
+    <WithSelector selector=".focus-visible">
+        <Button>.focus-visible</Button>
+    </WithSelector>
+</Stack>
+```
+
+---
+
+<Figure
+    src={"/assets/buttons-4.png"}
+    alt="Pseudo-states of a button"
+    caption="Pseudo-states of a button"
+/>
 
 ---
 
@@ -369,6 +386,90 @@ describe('Ref Tests', () => {
 1. ~~Unstash changes~~
 
 ---
+
+### How to ensure manual testing instructions are complete?
+
+### How many states a Select can be in?
+
+---
+
+## Model-based tests
+
+---
+
+> Model-based tests generate tests automatically based on the state machine
+
+---
+
+```
+Select Component
+  Idle*
+    if item is set -> ItemIsSet
+    otherwise  -> ItemNotSet
+  ItemNotSet
+    open -> HighlightingItem
+  ItemIsSet
+    open -> HighlightingItem
+  HighlightingItem
+    cancel -> Idle
+    navigate -> HighlightingItem
+    select -> Idle
+```
+
+---
+
+```typescript
+const TestSubject = ({ value, clearable }: typeof Select) => (
+    <Select
+        clearable={clearable}
+        value={value}
+        options={[
+            { label: 'First', value: 'first' },
+            { label: 'Second', value: 'second' },
+        ]}
+    />
+)
+```
+
+---
+
+<Text style={{ fontSize: 16}}>
+
+```
+reaches state: "ItemNotSet" ({"highlightedItem":null,"selectedItem":null})
+    ✓ via  (157ms)
+  reaches state: "HighlightingItem" ({"highlightedItem":null,"selectedItem":null})
+    ✓ via open ({"using":"mouse"}) (246ms)
+    ✓ via open ({"using":"keyboard"}) (304ms)
+  reaches state: "HighlightingItem" ({"highlightedItem":"Datatap","selectedItem":null})
+    ✓ via open ({"using":"mouse"}) → navigate ({"item":"Datatap","using":"mouse"}) (280ms)
+    ✓ via open ({"using":"mouse"}) → navigate ({"item":"Datatap","using":"keyboard"}) (375ms)
+    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"Datatap","using":"mouse"}) (383ms)
+    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"Datatap","using":"keyboard"}) (510ms)
+  reaches state: "ItemNotSet" ({"highlightedItem":"Datatap","selectedItem":null})
+    ✓ via open ({"using":"mouse"}) → navigate ({"item":"Datatap","using":"mouse"}) → cancel ({"using":"mouse"}) (548ms)
+    ✓ via open ({"using":"mouse"}) → navigate ({"item":"Datatap","using":"mouse"}) → cancel ({"using":"keyboard"}) (602ms)
+    ✓ via open ({"using":"mouse"}) → navigate ({"item":"Datatap","using":"keyboard"}) → cancel ({"using":"mouse"}) (605ms)
+    ✓ via open ({"using":"mouse"}) → navigate ({"item":"Datatap","using":"keyboard"}) → cancel ({"using":"keyboard"}) (467ms)
+    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"Datatap","using":"mouse"}) → cancel ({"using":"mouse"}) (473ms)
+    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"Datatap","using":"mouse"}) → cancel ({"using":"keyboard"}) (492ms)
+    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"Datatap","using":"keyboard"}) → cancel ({"using":"mouse"}) (532ms)
+    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"Datatap","using":"keyboard"}) → cancel ({"using":"keyboard"}) (536ms)
+```
+
+</Text>
+
+---
+
+# 132
+
+---
+
+<Demo src="https://sketch.systems/okonet/sketch/64ddad32ec5753cdab12da7d4eb53a48" />
+
+---
+
+
 
 <Figure
     src={"/assets/releases-checks-green.png"}
