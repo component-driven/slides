@@ -49,9 +49,10 @@ UI engineer with experience in both design & development who specializes in inte
 
 ## Adverity Design System
 
-1. 3 products depend on it
+1. 3 products
 1. 30+ Frontend Engineers
 1. 5+ UX Designers
+1. Dozens of teams
 
 ---
 
@@ -75,6 +76,7 @@ UI engineer with experience in both design & development who specializes in inte
 
 - "Design system is the single source of failure"
 - "No release process. Breaking changes can take days to upgrade."
+- "Design isn't in sync with engineering"
 - etc...
 ---
 
@@ -86,7 +88,6 @@ UI engineer with experience in both design & development who specializes in inte
 </Primary>
 
 ---
-
 
 <Primary imgSrc="/assets/back-disassembled.jpg">
 
@@ -152,11 +153,23 @@ UI engineer with experience in both design & development who specializes in inte
 
 ---
 
+<Figure
+    src={"/assets/js-ts-icons.png"}
+    alt="JavaScript and TypeScript components"
+    caption="JavaScript and TypeScript components"
+/>
+
+---
+
 ## JavaScript -> TypeScript
 
 1. Plan and dedicate time
-1. Refactoring a JS file? Convert to TS first
+1. Refactoring? Convert to TS first!
 1. JS -> TS _might be_ a breaking change
+
+---
+
+## ✅ JavaScript -> TypeScript
 
 ---
 
@@ -197,6 +210,10 @@ describe('Ref Tests', () => {
         })
 })
 ```
+
+---
+
+## ✅ Unit tests
 
 ---
 
@@ -312,10 +329,6 @@ describe('Ref Tests', () => {
 
 ---
 
-<Demo src="https://github.com/jondot/storybook-cartesian" />
-
----
-
 <Demo src="https://ui.component-driven.dev/#/with-selector?id=withselector" />
 
 ---
@@ -342,6 +355,10 @@ describe('Ref Tests', () => {
     alt="Pseudo-states of a button"
     caption="Pseudo-states of a button"
 />
+
+---
+
+## ✅ Visual regression tests
 
 ---
 
@@ -387,9 +404,7 @@ describe('Ref Tests', () => {
 
 ---
 
-### How to ensure manual testing instructions are complete?
-
-### How many states a Select can be in?
+> How to ensure manual testing instructions are complete?
 
 ---
 
@@ -418,8 +433,8 @@ Select Component
 
 ---
 
-```typescript
-const TestSubject = ({ value, clearable }: typeof Select) => (
+```javascript
+const TestSubject = ({ value, clearable }) => (
     <Select
         clearable={clearable}
         value={value}
@@ -441,20 +456,20 @@ reaches state: "ItemNotSet" ({"highlightedItem":null,"selectedItem":null})
   reaches state: "HighlightingItem" ({"highlightedItem":null,"selectedItem":null})
     ✓ via open ({"using":"mouse"}) (246ms)
     ✓ via open ({"using":"keyboard"}) (304ms)
-  reaches state: "HighlightingItem" ({"highlightedItem":"Datatap","selectedItem":null})
-    ✓ via open ({"using":"mouse"}) → navigate ({"item":"Datatap","using":"mouse"}) (280ms)
-    ✓ via open ({"using":"mouse"}) → navigate ({"item":"Datatap","using":"keyboard"}) (375ms)
-    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"Datatap","using":"mouse"}) (383ms)
-    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"Datatap","using":"keyboard"}) (510ms)
-  reaches state: "ItemNotSet" ({"highlightedItem":"Datatap","selectedItem":null})
-    ✓ via open ({"using":"mouse"}) → navigate ({"item":"Datatap","using":"mouse"}) → cancel ({"using":"mouse"}) (548ms)
-    ✓ via open ({"using":"mouse"}) → navigate ({"item":"Datatap","using":"mouse"}) → cancel ({"using":"keyboard"}) (602ms)
-    ✓ via open ({"using":"mouse"}) → navigate ({"item":"Datatap","using":"keyboard"}) → cancel ({"using":"mouse"}) (605ms)
-    ✓ via open ({"using":"mouse"}) → navigate ({"item":"Datatap","using":"keyboard"}) → cancel ({"using":"keyboard"}) (467ms)
-    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"Datatap","using":"mouse"}) → cancel ({"using":"mouse"}) (473ms)
-    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"Datatap","using":"mouse"}) → cancel ({"using":"keyboard"}) (492ms)
-    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"Datatap","using":"keyboard"}) → cancel ({"using":"mouse"}) (532ms)
-    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"Datatap","using":"keyboard"}) → cancel ({"using":"keyboard"}) (536ms)
+  reaches state: "HighlightingItem" ({"highlightedItem":"First","selectedItem":null})
+    ✓ via open ({"using":"mouse"}) → navigate ({"item":"First","using":"mouse"}) (280ms)
+    ✓ via open ({"using":"mouse"}) → navigate ({"item":"First","using":"keyboard"}) (375ms)
+    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"First","using":"mouse"}) (383ms)
+    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"First","using":"keyboard"}) (510ms)
+  reaches state: "ItemNotSet" ({"highlightedItem":"First","selectedItem":null})
+    ✓ via open ({"using":"mouse"}) → navigate ({"item":"First","using":"mouse"}) → cancel ({"using":"mouse"}) (548ms)
+    ✓ via open ({"using":"mouse"}) → navigate ({"item":"First","using":"mouse"}) → cancel ({"using":"keyboard"}) (602ms)
+    ✓ via open ({"using":"mouse"}) → navigate ({"item":"First","using":"keyboard"}) → cancel ({"using":"mouse"}) (605ms)
+    ✓ via open ({"using":"mouse"}) → navigate ({"item":"First","using":"keyboard"}) → cancel ({"using":"keyboard"}) (467ms)
+    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"First","using":"mouse"}) → cancel ({"using":"mouse"}) (473ms)
+    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"First","using":"mouse"}) → cancel ({"using":"keyboard"}) (492ms)
+    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"First","using":"keyboard"}) → cancel ({"using":"mouse"}) (532ms)
+    ✓ via open ({"using":"keyboard"}) → navigate ({"item":"First","using":"keyboard"}) → cancel ({"using":"keyboard"}) (536ms)
 ```
 
 </Text>
@@ -462,6 +477,20 @@ reaches state: "ItemNotSet" ({"highlightedItem":null,"selectedItem":null})
 ---
 
 # 132
+tests generated
+
+---
+
+<Demo src="https://xstate.js.org/docs/packages/xstate-test/" />
+
+
+---
+
+## Bonus
+
+1. Use state machines to communicate user flows
+1. Designers & engineers working closer together
+1. Single state of truth (specification)
 
 ---
 
@@ -469,7 +498,33 @@ reaches state: "ItemNotSet" ({"highlightedItem":null,"selectedItem":null})
 
 ---
 
+<Figure
+    src={"/assets/model-based-states.png"}
+    alt="All possible states of a component"
+    caption="All possible states of a component"
+/>
 
+---
+
+<Figure
+    src={"/assets/model-based-styleguide.png"}
+    alt="All possible states of a component"
+    caption="All possible states of a component"
+/>
+
+---
+
+## ✅ Interactivity & Behavior Tests
+
+---
+
+1. ✅ JavaScript -> TypeScript
+1. ✅ Principles -> Unit tests
+1. ✅ Visual regression tests
+1. ✅ Behavior -> Model based tests
+1. ✅ Manual QA
+
+---
 
 <Figure
     src={"/assets/releases-checks-green.png"}
@@ -479,19 +534,18 @@ reaches state: "ItemNotSet" ({"highlightedItem":null,"selectedItem":null})
 
 ---
 
-<Figure
-    src={"/assets/releases-update-branch.png"}
-    alt="PR Status Checks"
-    caption="PR Status Checks"
-/>
-
----
-
-# 🥺
-
----
+<Primary>
 
 # Release management
+
+</Primary>
+
+---
+
+## Release management
+
+1. Versioning
+1. Automation
 
 ---
 
@@ -507,6 +561,23 @@ reaches state: "ItemNotSet" ({"highlightedItem":null,"selectedItem":null})
 ---
 
 # **SemVer**
+
+---
+
+<Grid columns={3} gap={4}>
+    <Box sx={{textAlign:"center"}}>
+        <Text style={{fontSize: "5ch"}}>0</Text>
+        <Text>Major</Text>
+    </Box>
+    <Box sx={{textAlign:"center"}}>
+        <Text style={{fontSize: "5ch"}}>0</Text>
+        <Text>Minor</Text>
+    </Box>
+    <Box sx={{textAlign:"center"}}>
+        <Text style={{fontSize: "5ch"}}>0</Text>
+        <Text>Patch</Text>
+    </Box>
+</Grid>
 
 ---
 
@@ -596,9 +667,10 @@ reaches state: "ItemNotSet" ({"highlightedItem":null,"selectedItem":null})
 
 ## Breaking changes
 
-1. API changes
-1. Removals (components or props)
-1. Renames (component or props)
+1. API changes (props)
+1. Renaming components
+1. Deprecating components
+1. ...
 
 ---
 
@@ -694,6 +766,15 @@ reaches state: "ItemNotSet" ({"highlightedItem":null,"selectedItem":null})
 
 ---
 
+## Recap
+
+1. Semantic Versioning
+1. Breaking changes are okay
+1. Visual regressions
+1. Static analysis
+
+---
+
 ## Release management
 
 1. Versioning
@@ -707,7 +788,7 @@ reaches state: "ItemNotSet" ({"highlightedItem":null,"selectedItem":null})
 
 ### Replacing the Input
 
-Introduce a new Input component but there are lots of usages of the old Input.
+How to introduce a new Input component if there are lots of usages of the old Input?
 
 ---
 
@@ -716,12 +797,16 @@ Introduce a new Input component but there are lots of usages of the old Input.
 <Grid columns={2}>
 <Box>
 
+### Design System
+
 1. Delete `Input`
 1. Create a new `Input`
 1. Breaking change
 
 </Box>
 <Box>
+
+### Product
 
 1. Upgrade to latest version
 1. Manually search & replace all usages of `Input`
@@ -740,12 +825,16 @@ Introduce a new Input component but there are lots of usages of the old Input.
 <Grid columns={2}>
 <Box>
 
+### Design System
+
 1. `Input` -> `DeprecatedInput`
 1. Create a new `Input` component
 1. Breaking change + a codemod
 
 </Box>
 <Box>
+
+### Product
 
 1. Upgrade to latest version
 1. Run the codemod `Input` -> `DeprecatedInput` (one PR)
@@ -760,7 +849,9 @@ Introduce a new Input component but there are lots of usages of the old Input.
 
 ---
 
-## Code refactorings based on ASTs
+## Codemods
+
+Code refactorings based on ASTs
 
 ---
 
@@ -776,11 +867,31 @@ Introduce a new Input component but there are lots of usages of the old Input.
 
 ---
 
-## Challenges
-
 1. How long maintain deprecated components?
 1. What about deprecation of props?
 1. More complex refactorings?
+
+---
+
+<Figure
+    src={"/assets/static-analysis-deprecated.png"}
+    alt="Deprecated component usages"
+    caption="Deprecated component usages"
+/>
+
+---
+
+> Support until there are usages of a component
+
+---
+
+## Release management
+
+1. Create and document processes
+1. Invest into infrastructure & DX
+1. Make decisions based on insights not feelings
+1. Automate everything
+1. Be emphatic
 
 ---
 
@@ -792,11 +903,17 @@ Introduce a new Input component but there are lots of usages of the old Input.
 
 ---
 
-1. Design systems > component libraries
-1. Invest into infrastructure & DX
-1. Make decisions based on insights not feelings
-1. Automate everything
-1. Be emphatic!
+> Design System > Component Library
+
+---
+
+<Figure
+    src={"/assets/logo-full@3x.png"}
+    alt="Component-driven Logo"
+    caption={
+        <h2><a href="https://www.component-driven.dev">www.component-driven.dev</a></h2>
+    }
+/>
 
 ---
 
@@ -804,21 +921,14 @@ Introduce a new Input component but there are lots of usages of the old Input.
 
 - [Cartesian products](https://johno.com/cartesian-product/)
 - [Visualizing Pseudo-states](https://ui.component-driven.dev/#/with-selector)
+- [Model-based testing](https://en.wikipedia.org/wiki/Model-based_testing)
+- [@xtate/test](https://xstate.js.org/docs/packages/xstate-test/#quick-start)
 - [JSCodeshift](https://github.com/facebook/jscodeshift)
 - [AST Explorer](https://astexplorer.net)
 - [MonoLisa Coding Font](https://www.monolisa.dev)
 
 ---
 
-<Figure
-  src={"/assets/component-driven.svg"}
-  alt="Component-driven Logo"
-  caption={
-    <a href="https://www.component-driven.dev">www.component-driven.dev</a>
-  }
-/>
-
----
 
 <Primary>
 
