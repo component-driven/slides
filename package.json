@@ -21,7 +21,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@component-driven/mdx-deck-theme": "^2.0.1",
+    "@component-driven/mdx-deck-theme": "^2.0.2",
     "emotion": "^11.0.0",
     "gatsby": "^2.32.12",
     "gatsby-plugin-compile-es6-packages": "^2.1.0",
